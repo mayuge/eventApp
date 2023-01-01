@@ -7,7 +7,6 @@
         <title>eventApp</title>
     </head>
     <body class="antialiased">
-        <h1>イベントアプリ</h1>
-        <a href='/login'>ログイン</a>
-        <a href='/register'>新規登録</a>
+        <h1>ログイン後画面</h1>
+       
 </html>
