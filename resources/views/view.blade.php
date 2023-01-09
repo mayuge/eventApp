@@ -8,5 +8,7 @@
     </head>
     <body class="antialiased">
         <h1>ログイン後画面</h1>
+        <a href='/create'>イベント作成</a>
+        <a href='/'>戻る</a>
        
 </html>

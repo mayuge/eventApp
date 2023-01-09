@@ -20,6 +20,8 @@ Route::get('/', [MyController::class, 'index'])->name('index');
 Route::group(['middleware'=>['auth']], function(){
     //ログインした後の画面はここに入れる
     Route::get('/view', [MyController::class, 'view'])->name('view')->middleware('auth');
+    Route::get('/create', [MyController::class, 'create'])->name('create')->middleware('auth');
+    Route::post('/store', [MyController::class, 'store'])->name('store')->middleware('auth');
 });
 
 
