@@ -15,17 +15,17 @@
             @csrf
     
                 <div><input type="text" name="events[title]" placeholder="イベント名"/></div>
-                 <div><input type="hidden" name="events[user_id]" value="{{ Auth::user()->id }}"/></div>
+                <div><input type="hidden" name="events[user_id]" value="{{ Auth::user()->id }}"/></div>
                 <div><textarea name="events[description]" placeholder="イベント説明"></textarea></div>
                 <div><textarea name="events[address]" placeholder="場所"></textarea></div>
-               <div><textarea name="events[date]" placeholder="日時"></textarea></div>
+                <div><textarea name="events[date]" placeholder="日時"></textarea></div>
                 <div><textarea name="events[message]" placeholder="メッセージ"></textarea></div>
                 <div><textarea name="events[others]" placeholder="その他"></textarea></div>
-                <div><textarea name="events[max_num]" placeholder="最大人数"></textarea></div>
+                <div><input type="number" name="events[max_num]" placeholder="最大人数"></input></div>
                 <div><textarea name="events[image_path1]" placeholder="イメージ１"></textarea></div>
                 <div><textarea name="events[image_path2]" placeholder="イメージ２"></textarea></div>
                 <div><textarea name="events[image_path3]" placeholder="イメージ３"></textarea></div>
-            <input type="submit" value="store"/>
+            <input type="submit" value="決定"/>
         </form>
         <div class="footer">
             <a href="view">戻る</a>

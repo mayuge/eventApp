@@ -25,6 +25,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('{event}/join', [MyController::class, 'join'])->name('join')->middleware('auth');
     
     Route::post('/store', [MyController::class, 'store'])->name('store')->middleware('auth');
+    Route::post('/candidate', [MyController::class, 'candidate'])->name('candidate')->middleware('auth');
 });
 
 

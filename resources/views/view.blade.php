@@ -13,9 +13,10 @@
          <div>{{ Auth::user()->email }}</div>
          
         <a href='/create'>イベント作成</a>
+        <a href='/'>戻る</a>
         
         @foreach ($events as $event)
-        <div style="border:solid 3px;">
+        <div style="border:solid 3px;margin-top:2%;">
             <div>
                 <h2>{{$event->title}}</h2>
                 <p>{{$event->description}}</p>
