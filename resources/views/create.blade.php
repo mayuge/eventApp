@@ -15,7 +15,7 @@
             @csrf
     
                 <div><input type="text" name="events[title]" placeholder="イベント名"/></div>
-                 <div><input type="text" name="events[user_id]" placeholder="id"/></div>
+                 <div><input type="hidden" name="events[user_id]" value="{{ Auth::user()->id }}"/></div>
                 <div><textarea name="events[description]" placeholder="イベント説明"></textarea></div>
                 <div><textarea name="events[address]" placeholder="場所"></textarea></div>
                <div><textarea name="events[date]" placeholder="日時"></textarea></div>
