@@ -14,13 +14,17 @@ class MyController extends Controller
     }
     
     public function view(User $user, Event $event){
-        return view('view')->with(["events"=>$event->get()])->with(['user' => $user]);
+        return view('view')->with(["events"=>$event->withCount('user')->get(),'user' => $user]);
     }
     
     
     
       public function create(User $user){
         return view('create')->with(['user' => $user]);
+    }
+    
+    public function eventEdit(User $user ,Event $event){
+        return view('eventEdit')->with(['user' => $user,'events'=>$event]);
     }
     
     public function store(Request $request, Event $event){
@@ -41,8 +45,20 @@ class MyController extends Controller
          return redirect('/view');
     }
     
+    public function update(Request $request, Event $event){
+        $input = $request['events'];
+        $event->fill($input)->save();
+        
+         return redirect('/view');
+    }
+    
     
      public function join(User $user, Event $event){
-        return view('join')->with(["events"=>$event])->with(['user' => $user]);
+        return view('join')->with(["events"=>$event,'user' => $user]);
+    }
+    
+    public function delete(Event $event){
+        $event->delete();
+        return redirect('/view');
     }
 }

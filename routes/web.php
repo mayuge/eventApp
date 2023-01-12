@@ -21,11 +21,15 @@ Route::group(['middleware'=>['auth']], function(){
     //ログインした後の画面はここに入れる
     Route::get('/view', [MyController::class, 'view'])->name('view')->middleware('auth');
     Route::get('/create', [MyController::class, 'create'])->name('create')->middleware('auth');
-    
     Route::get('{event}/join', [MyController::class, 'join'])->name('join')->middleware('auth');
+    Route::get('{event}/eventEdit', [MyController::class, 'eventEdit'])->name('eventEdit')->middleware('auth');
+    
+    Route::put('/{event}/update', [PostController::class, 'update'])->name('update')->middleware('auth');
     
     Route::post('/store', [MyController::class, 'store'])->name('store')->middleware('auth');
     Route::post('/candidate', [MyController::class, 'candidate'])->name('candidate')->middleware('auth');
+    
+    Route::get('{event}/delete', [MyController::class, 'delete'])->name('delete')->middleware('auth');
 });
 
 

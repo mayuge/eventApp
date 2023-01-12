@@ -12,6 +12,8 @@
          <div>{{ Auth::user()->id }}</div>
          <div>{{ Auth::user()->email }}</div>
          
+         <div>画像の投稿を任意にしたい。削除・更新機能必要。現段階での参加希望人数を表示したい。グーグルマップの表示必要？画像を投稿する機能。主催者も参加できてしまう。参加日時Date型にする？何度も同じイベントに同じ人がログインできてしまう。</div>
+         
         <a href='/create'>イベント作成</a>
         <a href='/'>戻る</a>
         
@@ -26,7 +28,13 @@
                 <p>{{$event->message}}</p>
                 <p>{{$event->others}}</p>
             </div>
+            <p>{{$event->user_count}}</p>
+            @if($event->user_id != Auth::id())
             <a href='/{{$event->id}}/join'>参加する</a>
+            @else
+            <a href='/{{$event->id}}/delete'>削除する</a>
+            <a href='/{{$event->id}}/eventEdit'>編集する</a>
+            @endif
         </div>
          
         @endforeach
