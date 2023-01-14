@@ -155,7 +155,8 @@ return [
     */
 
     'providers' => [
-
+        
+            CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class, //この行を追加
         /*
          * Laravel Framework Service Providers...
          */

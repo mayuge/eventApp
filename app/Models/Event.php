@@ -24,8 +24,13 @@ class Event extends Model
         'image_path1',
         'image_path2',
         'image_path3',
-        
+        'image_url1',
+        'image_url2',
+        'image_url3',
     ];
+    public function getPaginateByLimit(int $limit_count = 5){
+     return $this->paginate($limit_count);
+    }
     
     public function user(){
      return $this->belongsTo(User::class);

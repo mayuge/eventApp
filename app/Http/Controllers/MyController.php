@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Event;
 use App\Models\Event_user;
 
+use Cloudinary; 
+
 class MyController extends Controller
 {
     public function index(User $user){
@@ -14,7 +16,7 @@ class MyController extends Controller
     }
     
     public function view(User $user, Event $event){
-        return view('view')->with(["events"=>$event->withCount('user')->get(),'user' => $user]);
+        return view('view')->with(["events"=>$event->withCount('user')->paginate(5),'user' => $user]);
     }
     
     
@@ -30,12 +32,35 @@ class MyController extends Controller
     public function store(Request $request, Event $event){
         $input = $request['events'];
         //dd($input);
+        $file = $request->file('events');
+        //$file1 =$file['image_path1'];
+        //$file2 =$file['image_path2'];
+        //$file3 =$file['image_path3'];
+        if(isset($file['image_path1'])){
+            $image_url1 = Cloudinary::upload($file['image_path1']->getRealPath())->getSecurePath();
+            $input += ['image_url1' => $image_url1];
+        }
+        if(isset($file['image_path2'])){
+            $image_url2 = Cloudinary::upload($file['image_path2']->getRealPath())->getSecurePath(); 
+            $input += ['image_url2' => $image_url2];
+        }
+        if(isset($file['image_path3'])){
+            $image_url3 = Cloudinary::upload($file['image_path3']->getRealPath())->getSecurePath();
+            $input += ['image_url3' => $image_url3];
+        }
+        
+        
+        
+        
+       // dd($image_url2);
     
+        //dd($input);
+        
         $event->fill($input)->save();
         
          return redirect('/view');
     }
-    
+
     public function candidate(Request $request, Event_user $event_user){
         $input = $request['event_users'];
         //dd($input);
@@ -47,9 +72,24 @@ class MyController extends Controller
     
     public function update(Request $request, Event $event){
         $input = $request['events'];
-        $event->fill($input)->save();
+         $file = $request->file('events');
+       
+        if(isset($file['image_path1'])){
+            $image_url1 = Cloudinary::upload($file['image_path1']->getRealPath())->getSecurePath();
+            $input += ['image_url1' => $image_url1];
+        }
+        if(isset($file['image_path2'])){
+            $image_url2 = Cloudinary::upload($file['image_path2']->getRealPath())->getSecurePath(); 
+            $input += ['image_url2' => $image_url2];
+        }
+        if(isset($file['image_path3'])){
+            $image_url3 = Cloudinary::upload($file['image_path3']->getRealPath())->getSecurePath();
+            $input += ['image_url3' => $image_url3];
+        }
         
-         return redirect('/view');
+        $event->fill($input)->save();
+         return redirect('/');
+
     }
     
     

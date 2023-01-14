@@ -22,9 +22,10 @@ class mySeeder extends Seeder
          
         DB::table('events')->insert([
              
-                'user_id' => 'ユーザーアイディー',
+                'user_id' => '1',
                 'title' => 'イベント名',
                 'address' => 'アドレス名',
+                'date' => '2018-02-02 18:31',
                 'description' => 'ディスクリプション',
                 'image_path1' => 'イメージ１',
                 'image_path2' => 'イメージ２',

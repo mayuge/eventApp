@@ -11,7 +11,7 @@
 
 
         <h1>作成画面</h1>
-       <form action="/store" method="POST">
+       <form action="/store" method="POST" enctype="multipart/form-data">
             @csrf
     
                 <div><input type="text" name="events[title]" placeholder="イベント名"/></div>

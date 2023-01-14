@@ -27,6 +27,11 @@
                 <li>{{$event->max_num}}人</li>
                 <p>{{$event->message}}</p>
                 <p>{{$event->others}}</p>
+                
+                <img src="{{ $event->image_url1 }}" alt="画像が読み込めません。"/>
+                <img src="{{ $event->image_url2 }}" alt="画像が読み込めません。"/>
+                <img src="{{ $event->image_url3 }}" alt="画像が読み込めません。"/>
+                
             </div>
             <p>{{$event->user_count}}</p>
             @if($event->user_id != Auth::id())
@@ -37,7 +42,12 @@
             @endif
         </div>
          
-        @endforeach
+        @endforeach 
+        <div>
+            {{ $events->links() }}    
+        </div>
+        
         <a href='/'>戻る</a>
+    </body>    
        
 </html>

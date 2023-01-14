@@ -12,20 +12,20 @@
 
         <h1>更新画面</h1>
         <div>テキストエリアにはvalue使えない</div>
-       <form action="{event}/update" method="POST">
+       <form action="/update" method="POST"  enctype="multipart/form-data">
             @csrf
-    
+             @method('PUT')
                 <div><input type="text" name="events[title]" value="{{$events->title}}"></div>
                 <div><input type="hidden" name="events[user_id]" value="{{ Auth::user()->id }}"/></div>
-                <div><textarea name="events[description]" value="{{$events->description}}"></textarea></div>
-                <div><textarea name="events[address]" value="{{$events->address}}"></textarea></div>
-                <div><textarea name="events[date]" value="{{$events->date}}"></textarea></div>
-                <div><textarea name="events[message]" value="{{$events->message}}"></textarea></div>
-                <div><textarea name="events[others]" value="{{$events->others}}"></textarea></div>
+                <div><input name="events[description]" value="{{$events->description}}"></input></div>
+                <div><input name="events[address]" value="{{$events->address}}"></input></div>
+                <div><input name="events[date]" value="{{$events->date}}"></input></div>
+                <div><input name="events[message]" value="{{$events->message}}"></input></div>
+                <div><input name="events[others]" value="{{$events->others}}"></input></div>
                 <div><input type="number" name="events[max_num]" value="{{$events->max_num}}"></input></div>
-                <div><input type="file" name="events[image_path1]" value="{{$events->image_path1}}"></input></div>
-                <div><input type="file" name="events[image_path2]" value="{{$events->image_path2}}"></input></div>
-                <div><input type="file" name="events[image_path3]" value="{{$events->image_path3}}"></input></div>
+                <div>{{$events->image_url1}}<input type="file" name="events[image_path1]" placeholder="{{$events->image_path1}}"></input></div>
+                <div>{{$events->image_url2}}<input type="file" name="events[image_path2]" placeholder="{{$events->image_path2}}"></input></div>
+                <div>{{$events->image_url3}}<input type="file" name="events[image_path3]" placeholder="{{$events->image_path3}}"></input></div>
                
             <input type="submit" value="決定"/>
         </form>

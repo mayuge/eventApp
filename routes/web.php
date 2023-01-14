@@ -29,7 +29,7 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('/store', [MyController::class, 'store'])->name('store')->middleware('auth');
     Route::post('/candidate', [MyController::class, 'candidate'])->name('candidate')->middleware('auth');
     
-    Route::get('{event}/delete', [MyController::class, 'delete'])->name('delete')->middleware('auth');
+    Route::get('/delete', [MyController::class, 'delete'])->name('delete')->middleware('auth');
 });
 
 

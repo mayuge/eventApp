@@ -11,7 +11,7 @@
 
 
         <h1>イベントアプリ</h1>
-        <a href='/view'>ログイン</a>
+        <a href='/login'>ログイン</a>
         <a href='/register'>新規登録</a>
         
     </body>    
