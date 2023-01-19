@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Event_user;
+use App\Models\Blog;
+use App\Models\Comment;
 
 use Cloudinary; 
 
 class MyController extends Controller
 {
-    public function index(User $user){
-        return view('index')->with(['user' => $user]);
+    public function index(User $user, Blog $blog, Comment $comment){
+        return view('index')->with(['user' => $user,'blogs' => $blog->paginate(5),'comments'=>$comment]);
     }
     
     public function view(User $user, Event $event){
@@ -20,13 +22,26 @@ class MyController extends Controller
     }
     
     
+    public function createBlog(User $user){
+        return view('createBlog')->with(['user' => $user]);
+    }
     
-      public function create(User $user){
+    public function create(User $user){
         return view('create')->with(['user' => $user]);
     }
     
     public function eventEdit(User $user ,Event $event){
         return view('eventEdit')->with(['user' => $user,'events'=>$event]);
+    }
+    public function storeBlog(Request $request, Blog $blog){
+         $input = $request['blog'];
+         $blog->fill($input)->save();
+         return redirect('/');
+    }
+    public function storeComment(Request $request, Comment $comment){
+         $input = $request['comment'];
+         $comment->fill($input)->save();
+         return redirect('/');
     }
     
     public function store(Request $request, Event $event){
@@ -48,12 +63,7 @@ class MyController extends Controller
             $image_url3 = Cloudinary::upload($file['image_path3']->getRealPath())->getSecurePath();
             $input += ['image_url3' => $image_url3];
         }
-        
-        
-        
-        
-       // dd($image_url2);
-    
+        // dd($image_url2);
         //dd($input);
         
         $event->fill($input)->save();
@@ -72,7 +82,8 @@ class MyController extends Controller
     
     public function update(Request $request, Event $event){
         $input = $request['events'];
-         $file = $request->file('events');
+        $file = $request->file('events');
+        //dd($event);
        
         if(isset($file['image_path1'])){
             $image_url1 = Cloudinary::upload($file['image_path1']->getRealPath())->getSecurePath();
@@ -88,7 +99,7 @@ class MyController extends Controller
         }
         
         $event->fill($input)->save();
-         return redirect('/');
+         return redirect('/view');
 
     }
     

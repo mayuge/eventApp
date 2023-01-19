@@ -12,14 +12,16 @@
          <div>{{ Auth::user()->id }}</div>
          <div>{{ Auth::user()->email }}</div>
          
-         <div>画像の投稿を任意にしたい。削除・更新機能必要。現段階での参加希望人数を表示したい。グーグルマップの表示必要？画像を投稿する機能。主催者も参加できてしまう。参加日時Date型にする？何度も同じイベントに同じ人がログインできてしまう。</div>
+         <div>参加拒否、参加中止をできるようにする。更新機能必要。現段階での参加希望人数を表示したい。グーグルマップの表示必要？画像を投稿する機能。主催者も参加できてしまう。参加日時Date型にする？何度も同じイベントに同じ人がログインできてしまう。</div>
          
         <a href='/create'>イベント作成</a>
+        <a href='/createBlog'>ブログを書く</a>
         <a href='/'>戻る</a>
         
         @foreach ($events as $event)
         <div style="border:solid 3px;margin-top:2%;">
             <div>
+                <p>{{$event->id}}</p>
                 <h2>{{$event->title}}</h2>
                 <p>{{$event->description}}</p>
                 <li>{{$event->address}}</li>

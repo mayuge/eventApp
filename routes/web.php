@@ -14,22 +14,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+    
+    Route::get('/', [MyController::class, 'index'])->name('index');
 
-Route::get('/', [MyController::class, 'index'])->name('index');
-
-Route::group(['middleware'=>['auth']], function(){
+    Route::group(['middleware'=>['auth']], function(){
     //ログインした後の画面はここに入れる
     Route::get('/view', [MyController::class, 'view'])->name('view')->middleware('auth');
+    // Route::get('{event}/view', [MyController::class, 'view'])->name('view')->middleware('auth');
+     
     Route::get('/create', [MyController::class, 'create'])->name('create')->middleware('auth');
+    Route::get('/createBlog', [MyController::class, 'createBlog'])->name('createBlog')->middleware('auth');
+    
+    
+    
     Route::get('{event}/join', [MyController::class, 'join'])->name('join')->middleware('auth');
     Route::get('{event}/eventEdit', [MyController::class, 'eventEdit'])->name('eventEdit')->middleware('auth');
     
-    Route::put('/{event}/update', [PostController::class, 'update'])->name('update')->middleware('auth');
+    Route::put('/update/{event}', [MyController::class, 'update'])->name('update')->middleware('auth');
     
     Route::post('/store', [MyController::class, 'store'])->name('store')->middleware('auth');
+    Route::post('/storeBlog', [MyController::class, 'storeBlog'])->name('storeBlog')->middleware('auth');
+    Route::post('/storeComment/{blog}', [MyController::class, 'storeComment'])->name('storeComment')->middleware('auth');
+    
     Route::post('/candidate', [MyController::class, 'candidate'])->name('candidate')->middleware('auth');
     
-    Route::get('/delete', [MyController::class, 'delete'])->name('delete')->middleware('auth');
+    Route::get('{event}/delete', [MyController::class, 'delete'])->name('delete')->middleware('auth');
 });
 
 

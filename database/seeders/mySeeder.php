@@ -20,6 +20,11 @@ class mySeeder extends Seeder
                 'email' => 'taro@gmail.com',
          ]);
          
+          DB::table('blogs')->insert([
+                'title' => 'ブログのタイトル',
+                'body' => '本文',
+         ]);
+         
         DB::table('events')->insert([
              
                 'user_id' => '1',

@@ -7,14 +7,14 @@
         <title>eventApp</title>
     </head>
     <body class="antialiased">
-        
+    
 
 
         <h1>更新画面</h1>
         <div>テキストエリアにはvalue使えない</div>
-       <form action="/update" method="POST"  enctype="multipart/form-data">
+       <form action="/update/{{ $events->id }}" method="POST"  enctype="multipart/form-data">
             @csrf
-             @method('PUT')
+            @method('PUT')
                 <div><input type="text" name="events[title]" value="{{$events->title}}"></div>
                 <div><input type="hidden" name="events[user_id]" value="{{ Auth::user()->id }}"/></div>
                 <div><input name="events[description]" value="{{$events->description}}"></input></div>
