@@ -1,0 +1,97 @@
+        *{
+         margin:0; 
+        }
+        nav {
+              width: 100%;
+              height: 70px;
+              background-color: #fa8500;
+              box-shadow: 5px 5px 5px 10px rgba(0,0,0,0.2);
+              box-sizing: border-box;
+              top: 0;
+              z-index: 10000;
+              position: fixed;
+             
+              
+        }
+        ul {
+          display: flex;
+        }
+        li {
+          list-style: none;
+          
+        }
+        a {
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            margin-right: 35px;
+        }
+        .container{
+          width: 100%;
+          margin:0 auto;
+          display: flex;
+          
+        }
+        .left_bar{
+          padding-top: 100px;
+          width:20%;
+          height: auto;
+          background-color: #464646;
+          
+         
+        }
+        .messagebox{
+            padding: 0px 50px 0px 50px;
+            margin-top: 20px;
+            margin-left:10px;
+            font-size: 16px;
+            max-width: 75%;
+            overflow: auto;
+            border:2px solid #fa8500;
+            
+           border-radius:0px 50px 50px 50px;
+    
+        }
+        .message_scroll{
+            overflow-y: scroll;
+            width:95%; 
+            height:300px;
+		        padding:5px;
+        }
+        .blog_card{
+          width:32%;
+          margin:6px 2px 0px 0px;
+          overflow: hidden;
+          border-radius: 8px;
+          box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        }
+        .card_container{
+          padding-left: 3px;
+          display: flex;
+	        flex-wrap: wrap;
+	        justify-content: space-between;
+        }
+        .blog_container{
+          margin-top: 70px;
+          width: 80%;
+          
+          
+        }
+        .login_button{
+            
+            margin: 30px auto;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-color: #fa8500;
+            font-size: 10px;
+            width: 80%;
+            height: 30px;
+            border-radius: 3px;
+            box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
+        }
+        
+     

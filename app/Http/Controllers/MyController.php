@@ -14,7 +14,7 @@ use Cloudinary;
 class MyController extends Controller
 {
     public function index(User $user, Blog $blog, Comment $comment){
-        return view('index')->with(['user' => $user,'blogs' => $blog->paginate(5),'comments'=>$comment]);
+        return view('index')->with(['user' => $user,'blogs' => $blog->paginate(6),'comments'=>$comment]);
     }
     
     public function view(User $user, Event $event){
