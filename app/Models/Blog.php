@@ -15,6 +15,13 @@ class Blog extends Model
         'title',
         'user_id',
         'body',
+        'image_path1',
+        'image_path2',
+        'image_path3',
+        'image_url1',
+        'image_url2',
+        'image_url3',
+        
     ];
     
     public function user(){

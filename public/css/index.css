@@ -1,7 +1,7 @@
         *{
          margin:0; 
         }
-        nav {
+        .header_nav {
               width: 100%;
               height: 70px;
               background-color: #fa8500;
@@ -10,17 +10,15 @@
               top: 0;
               z-index: 10000;
               position: fixed;
-             
-              
         }
-        ul {
+        .header_nav ul{
           display: flex;
         }
-        li {
+        .header_nav li {
           list-style: none;
           
         }
-        a {
+        .header_nav a {
             margin-top: 20px;
             display: block;
             text-decoration: none;
@@ -29,17 +27,13 @@
         }
         .container{
           width: 100%;
-          margin:0 auto;
           display: flex;
-          
         }
         .left_bar{
           padding-top: 100px;
           width:20%;
           height: auto;
           background-color: #464646;
-          
-         
         }
         .messagebox{
             padding: 0px 50px 0px 50px;
@@ -57,20 +51,24 @@
             overflow-y: scroll;
             width:95%; 
             height:300px;
-		        padding:5px;
+		        
         }
         .blog_card{
-          width:32%;
-          margin:6px 2px 0px 0px;
+          width:28%;
+          margin:4% 4% 0px 0px;
+          height: 400px;
           overflow: hidden;
           border-radius: 8px;
+          
           box-shadow: 0 4px 15px rgba(0,0,0,.2);
         }
         .card_container{
-          padding-left: 3px;
+          padding-left: 4%;
           display: flex;
 	        flex-wrap: wrap;
-	        justify-content: space-between;
+          position: relative;
+          padding-bottom: 30px;
+	        
         }
         .blog_container{
           margin-top: 70px;
@@ -78,6 +76,7 @@
           
           
         }
+      
         .login_button{
             
             margin: 30px auto;
@@ -93,5 +92,31 @@
             border-radius: 3px;
             box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
         }
+        .pagination{
+           text-align: center;
+        }
         
-     
+        .pagination li{
+           display: inline-block;
+        }
+        .page-item{
+          padding: 8px 16px;
+           border: 1px solid #fa8500;
+        }
+        
+        .page-item.active {
+            background-color: #fa8500;
+            color: white;
+            border: 1px solid #fa8500;
+        }
+        /*.paginate{*/
+        /*  position: relative;*/
+        /*  width:100%;*/
+        /*  height: 80px;*/
+        /*  display: block;*/
+          
+        /*}*/
+        /*.paginate li{*/
+        /*  display: inline-block;*/
+        /*}*/
+        

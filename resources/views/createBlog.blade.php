@@ -13,11 +13,12 @@
         <h1>作成画面</h1>
        <form action="/storeBlog" method="POST" enctype="multipart/form-data">
             @csrf
-    
                 <div><input type="text" name="blog[title]" placeholder="イベント名"/></div>
                 <div><input type="hidden" name="blog[user_id]" value="{{ Auth::user()->id }}"/></div>
                 <div><textarea name="blog[body]" placeholder="イベント説明"></textarea></div>
-             
+                <div><input type="file" name="blog[image_path1]" placeholder="イメージ１"></input></div>
+                <div><input type="file" name="blog[image_path2]" placeholder="イメージ２"></input></div>
+                <div><input type="file" name="blog[image_path3]" placeholder="イメージ３"></input></div>
                
             <input type="submit" value="決定"/>
         </form>

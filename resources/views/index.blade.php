@@ -8,7 +8,7 @@
     </head>
     <body class="antialiased">
 
-        <nav>
+        <nav class="header_nav">
             <ul>
                 <img href="/"style="margin-left:-60px;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674273998/xdnja7rhsf3w7imicf3y.png">
                 <li><a href="/">サービス紹介</a></li>
@@ -18,57 +18,37 @@
             </ul>
         </nav>
         
-        
-        
-        
-        
-            <div class="container">            
+        <div class="container">            
             <div class="left_bar">
                 
                 <a class="login_button" href='/login'>ログイン</a>
                 <a class="login_button" href='/register'>新規登録</a>
-                
-                
+    
             </div>
             <div class="blog_container">
                 <img style="width:100%;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674231158/ajy01ljzsnvcew6spkad.jpg">
-                <div class="card_container">
-                @foreach ($blogs as $blog)
-                <div class="blog_card">
-                    <h2>{{$blog->title}}</h2>
-                    <p>{{$blog->body}}</p>
-                    
-                    <div class="message_scroll">
-                         @foreach($blog->comments as $comment)
-                         
-                            <h3>{{$comment->name}}</h3>
-                            <div class="messagebox">
-                                <p>{{$comment->body}}</p>
-                            </div>
-                            
-                         @endforeach
-                         
-                    </div>
-                       
-                    <form action="/storeComment/{{$blog->id}}" method="POST">
-                         @csrf
-                        <div><input type="text" name="comment[name]" placeholder="ニックネーム"/></div>
-                        <div><input type="text" name="comment[body]" placeholder="コメント"/></div>
-                        <div><input type="hidden" name="comment[blog_id]" value="{{$blog->id}}"/></div>
-                        <input type="submit" value="決定"/>
-                    </form>
-             </div>
-                
-                @endforeach
-            <div class="paginate">
-                 {{ $blogs->links() }}   
-            </div>    
                
+                <div class="card_container">
+                    @foreach ($blogs as $blog)
+                    <div class="blog_card">
+                        <img style="width:100%;height:50%;"src="{{ $blog->image_url1 }}" alt="画像が読み込めません。">
+                      
+                        <h2>{{$blog->title}}</h2>
+                        <p>{{$blog->body}}</p>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="paginate">
+                {{ $blogs->links() }}   
+                </div>
             </div>
-              
-             
-         
+           
         </div>
+      
+   
        
+       
+        
     </body>    
+     
 </html>

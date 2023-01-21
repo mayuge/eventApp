@@ -18,6 +18,12 @@ return new class extends Migration
             $table->string('user_id', 50);
             $table->string('title', 30);
             $table->string('body', 1000);
+            $table->string('image_path1')->nullable();
+            $table->string('image_path2')->nullable();
+            $table->string('image_path3')->nullable();
+            $table->string('image_url1')->nullable();
+            $table->string('image_url2')->nullable();
+            $table->string('image_url3')->nullable();
             $table->timestamps();
         });
     }

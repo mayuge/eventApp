@@ -35,9 +35,26 @@ class MyController extends Controller
     }
     public function storeBlog(Request $request, Blog $blog){
          $input = $request['blog'];
-         $blog->fill($input)->save();
-         return redirect('/');
+        // dd($input);
+         $file = $request->file('blog');
+       
+        if(isset($file['image_path1'])){
+            $image_url1 = Cloudinary::upload($file['image_path1']->getRealPath())->getSecurePath();
+            $input += ['image_url1' => $image_url1];
+        }
+        if(isset($file['image_path2'])){
+            $image_url2 = Cloudinary::upload($file['image_path2']->getRealPath())->getSecurePath(); 
+            $input += ['image_url2' => $image_url2];
+        }
+        if(isset($file['image_path3'])){
+            $image_url3 = Cloudinary::upload($file['image_path3']->getRealPath())->getSecurePath();
+            $input += ['image_url3' => $image_url3];
+        }
+        
+        $blog->fill($input)->save();
+        return redirect('/');
     }
+    
     public function storeComment(Request $request, Comment $comment){
          $input = $request['comment'];
          $comment->fill($input)->save();
