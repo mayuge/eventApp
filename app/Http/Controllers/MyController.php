@@ -64,7 +64,7 @@ class MyController extends Controller
          return redirect('/');
     }
     
-    public function store(Request $request, Event $event){
+    public function store(Request $request, Event $event, Event_user $event_user){
         $input = $request['events'];
         //dd($input);
         $file = $request->file('events');
@@ -124,13 +124,13 @@ class MyController extends Controller
     }
     
     
-     public function join(User $user, Event $event ,Event_user $event_user){
+     public function join(Event $event ,Event_user $event_user){
     
         $event_user2= DB::table('event_users')->where('event_id','=',$event->id)->get();
         
-        $user2=DB::table('users')->get();
+        $users = $event->users;
     
-        return view('join')->with(['user2'=>$user2,'event_user2'=>$event_user2,'events'=>$event,'user' => $user, 'event_users'=>$event_user]);
+        return view('join')->with(['users'=>$users,'event_user2'=>$event_user2,'events'=>$event]);
     }
     
     public function delete(Event $event){

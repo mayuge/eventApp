@@ -23,7 +23,9 @@
               
                 <h2>{{$blog->title}}</h2>
                 <p>{{$blog->body}}</p>
-                <a href='/{{$blog->id}}/blogDelete'>削除する</a>
+                @if(Auth::user()->id == $blog->user_id)
+                    <a href='/{{$blog->id}}/blogDelete'>削除する</a>
+                @endif    
             </div>
             @endforeach
         </div>
@@ -51,6 +53,7 @@
             @if($event->user_id != Auth::id())
             <a href='/{{$event->id}}/join'>参加する</a>
             @else
+            <a href='/{{$event->id}}/join'>参加者と交流</a>
             <a href='/{{$event->id}}/delete'>削除する</a>
             <a href='/{{$event->id}}/eventEdit'>編集する</a>
             @endif

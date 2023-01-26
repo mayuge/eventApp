@@ -42,8 +42,8 @@ class mySeeder extends Seeder
          ]);
          DB::table('event_users')->insert([
              
-                'user_id' => 'ユーザーアイディー',
-                'event_id' => 'イベントアイディー',
+                'user_id' => '1',
+                'event_id' => '1',
                 'comment' => 'コメント',
                
          ]);

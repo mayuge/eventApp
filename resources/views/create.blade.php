@@ -25,6 +25,8 @@
                 <div><input type="file" name="events[image_path1]" placeholder="イメージ１"></input></div>
                 <div><input type="file" name="events[image_path2]" placeholder="イメージ２"></input></div>
                 <div><input type="file" name="events[image_path3]" placeholder="イメージ３"></input></div>
+                
+              
                
             <input type="submit" value="決定"/>
         </form>

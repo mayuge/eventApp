@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Event;
+use App\Models\Event_user;
 
 class User extends Authenticatable
 {
@@ -41,4 +43,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function joinEvents(){
+     return $this->belongsToMany(Event::class,'event_users');
+    }
+    
+    public function joinedEvent($event_id){
+        return Event_user::where('user_id',$this->id)->where('event_id',$event_id)->exists();
+    }
 }

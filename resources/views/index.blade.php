@@ -35,6 +35,22 @@
                       
                         <h2>{{$blog->title}}</h2>
                         <p>{{$blog->body}}</p>
+                        
+                        <div class="message_scroll">
+                             @foreach($blog->comments as $comment)
+                                <h3>{{$comment->name}}</h3>
+                                <div class="messagebox">
+                                    <p>{{$comment->body}}</p>
+                                </div>
+                             @endforeach
+                         </div>
+                            <form action="/storeComment/{{$blog->id}}" method="POST">
+                                 @csrf
+                                <div><input type="text" name="comment[name]" placeholder="ニックネーム"/></div>
+                                <div><input type="text" name="comment[body]" placeholder="コメント"/></div>
+                                <div><input type="hidden" name="comment[blog_id]" value="{{$blog->id}}"/></div>
+                                <input type="submit" value="決定"/>
+                            </form>
                     </div>
                     @endforeach
                 </div>
