@@ -20,7 +20,15 @@
                 <p>{{$events->message}}</p>
                 <p>{{$events->others}}</p>
         </div>
+        
             
+          
+           @foreach($event_user2 as $event_user)
+           <div>{{$user2[$event_user->user_id-1]->name}}</div>
+           <div>{{$event_user->comment}}</div>
+           <a href='/{{$event_user->id}}/joinDelete'>削除する</a>
+           @endforeach
+           
             <form action="/candidate" method="POST">
                 @csrf
                     <div><input type="hidden" name="event_users[user_id]" value="{{ Auth::user()->id }}"/></div>
@@ -28,6 +36,9 @@
                     <div><textarea name="event_users[comment]" placeholder="参加にあたってのコメント"></textarea></div>
                 <input type="submit" value="参加する"/>
             </form> 
+            
+            
+            
             
             
          <a href='/view'>戻る</a>

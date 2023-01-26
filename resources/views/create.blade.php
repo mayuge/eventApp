@@ -21,7 +21,7 @@
                 <div><input type="datetime-local" name="events[date]" placeholder="日時"></div>
                 <div><textarea name="events[message]" placeholder="メッセージ"></textarea></div>
                 <div><textarea name="events[others]" placeholder="その他"></textarea></div>
-                <div><input type="number" name="events[max_num]" placeholder="最大人数"></input></div>
+                <div><input type="number" min="2"name="events[max_num]" placeholder="最大人数"></input></div>
                 <div><input type="file" name="events[image_path1]" placeholder="イメージ１"></input></div>
                 <div><input type="file" name="events[image_path2]" placeholder="イメージ２"></input></div>
                 <div><input type="file" name="events[image_path3]" placeholder="イメージ３"></input></div>

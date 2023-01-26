@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Event_user;
 use App\Models\Blog;
 use App\Models\Comment;
+use Illuminate\Support\Facades\DB;
 
 use Cloudinary; 
 
@@ -17,8 +18,10 @@ class MyController extends Controller
         return view('index')->with(['user' => $user,'blogs' => $blog->paginate(6),'comments'=>$comment]);
     }
     
-    public function view(User $user, Event $event){
-        return view('view')->with(["events"=>$event->withCount('user')->paginate(5),'user' => $user]);
+    public function view(User $user, Event $event, Blog $blog){
+        $input =$event->withCount('user')->paginate(6);
+        //dd($input);
+        return view('view')->with(["events"=>$input,'user' => $user,'blogs' => $blog->paginate(6)]);
     }
     
     
@@ -52,7 +55,7 @@ class MyController extends Controller
         }
         
         $blog->fill($input)->save();
-        return redirect('/');
+        return redirect('/view');
     }
     
     public function storeComment(Request $request, Comment $comment){
@@ -121,12 +124,27 @@ class MyController extends Controller
     }
     
     
-     public function join(User $user, Event $event){
-        return view('join')->with(["events"=>$event,'user' => $user]);
+     public function join(User $user, Event $event ,Event_user $event_user){
+    
+        $event_user2= DB::table('event_users')->where('event_id','=',$event->id)->get();
+        
+        $user2=DB::table('users')->get();
+    
+        return view('join')->with(['user2'=>$user2,'event_user2'=>$event_user2,'events'=>$event,'user' => $user, 'event_users'=>$event_user]);
     }
     
     public function delete(Event $event){
         $event->delete();
+        return redirect('/view');
+    }
+    
+    public function joinDelete(Event_user $event_user){
+        $event_user->delete();
+        return redirect('/view');
+    }
+    
+    public function blogDelete(Blog $blog){
+        $blog->delete();
         return redirect('/view');
     }
 }

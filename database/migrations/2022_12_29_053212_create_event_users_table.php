@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('user_id', 50);
             $table->string('event_id', 50);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

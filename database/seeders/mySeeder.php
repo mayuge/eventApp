@@ -23,6 +23,7 @@ class mySeeder extends Seeder
           DB::table('blogs')->insert([
                 'title' => 'ブログのタイトル',
                 'body' => '本文',
+                'user_id'=>'1',
          ]);
          
         DB::table('events')->insert([
@@ -46,5 +47,7 @@ class mySeeder extends Seeder
                 'comment' => 'コメント',
                
          ]);
+         
+      
     }
 }

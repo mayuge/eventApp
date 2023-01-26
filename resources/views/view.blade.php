@@ -12,12 +12,24 @@
          <div>{{ Auth::user()->id }}</div>
          <div>{{ Auth::user()->email }}</div>
          
-         
-         
         <a href='/create'>イベント作成</a>
         <a href='/createBlog'>ブログを書く</a>
         <a href='/'>戻る</a>
         
+        <div class="card_container">
+            @foreach ($blogs as $blog)
+            <div class="blog_card">
+                <img style="width:100%;height:50%;"src="{{ $blog->image_url1 }}" alt="画像が読み込めません。">
+              
+                <h2>{{$blog->title}}</h2>
+                <p>{{$blog->body}}</p>
+                <a href='/{{$blog->id}}/blogDelete'>削除する</a>
+            </div>
+            @endforeach
+        </div>
+        <div class="paginate">
+            {{ $blogs->links() }}   
+        </div>
         @foreach ($events as $event)
         <div style="border:solid 3px;margin-top:2%;">
             <div>

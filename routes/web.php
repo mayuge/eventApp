@@ -39,6 +39,9 @@ use Illuminate\Support\Facades\Route;
     Route::post('/candidate', [MyController::class, 'candidate'])->name('candidate')->middleware('auth');
     
     Route::get('{event}/delete', [MyController::class, 'delete'])->name('delete')->middleware('auth');
+    
+    Route::get('{event_user}/joinDelete', [MyController::class, 'joinDelete'])->name('joinDelete')->middleware('auth');
+    Route::get('{blog}/blogDelete', [MyController::class, 'blogDelete'])->name('blogDelete')->middleware('auth');
 });
 
 
