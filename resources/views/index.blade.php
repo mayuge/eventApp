@@ -20,37 +20,25 @@
         
         <div class="container">            
             <div class="left_bar">
-                
                 <a class="login_button" href='/login'>ログイン</a>
                 <a class="login_button" href='/register'>新規登録</a>
-    
             </div>
             <div class="blog_container">
                 <img style="width:100%;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674231158/ajy01ljzsnvcew6spkad.jpg">
-               
+                <div class="label"><h2>イベントブログ一覧</h2></div>
                 <div class="card_container">
                     @foreach ($blogs as $blog)
                     <div class="blog_card">
-                        <img style="width:100%;height:50%;"src="{{ $blog->image_url1 }}" alt="画像が読み込めません。">
-                      
+                        @if($blog->image_url1 === null)
+                        <img style="width:100%;height:50%;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674231158/ajy01ljzsnvcew6spkad.jpg">
+                        @else
+                        <img style="width:100%;height:50%;"src="{{ $blog->image_url1 }}">
+                        @endif
                         <h2>{{$blog->title}}</h2>
+                        <p>{{$blog->created_at}}</p>
                         <p>{{$blog->body}}</p>
                         
-                        <div class="message_scroll">
-                             @foreach($blog->comments as $comment)
-                                <h3>{{$comment->name}}</h3>
-                                <div class="messagebox">
-                                    <p>{{$comment->body}}</p>
-                                </div>
-                             @endforeach
-                         </div>
-                            <form action="/storeComment/{{$blog->id}}" method="POST">
-                                 @csrf
-                                <div><input type="text" name="comment[name]" placeholder="ニックネーム"/></div>
-                                <div><input type="text" name="comment[body]" placeholder="コメント"/></div>
-                                <div><input type="hidden" name="comment[blog_id]" value="{{$blog->id}}"/></div>
-                                <input type="submit" value="決定"/>
-                            </form>
+                        <a class="join_button" style="width:95%;" href='/{{$blog->id}}/blog'>ブログを見る</a>
                     </div>
                     @endforeach
                 </div>

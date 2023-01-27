@@ -9,19 +9,23 @@ use App\Models\Event_user;
 use App\Models\Blog;
 use App\Models\Comment;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 use Cloudinary; 
 
 class MyController extends Controller
 {
     public function index(User $user, Blog $blog, Comment $comment){
-        return view('index')->with(['user' => $user,'blogs' => $blog->paginate(6),'comments'=>$comment]);
+        return view('index')->with(['user' => $user,'blogs' => $blog->orderBy('created_at', 'desc')->paginate(6),'comments'=>$comment]);
+    }
+    public function blog(User $user, Blog $blog, Comment $comment){
+        return view('blog')->with(['user' => $user,'blog' => $blog,'comments'=>$comment]);
     }
     
     public function view(User $user, Event $event, Blog $blog){
-        $input =$event->withCount('user')->paginate(6);
-        //dd($input);
-        return view('view')->with(["events"=>$input,'user' => $user,'blogs' => $blog->paginate(6)]);
+        $event_input = $event->withCount('users')->orderBy('created_at', 'desc')->paginate(6,['*'], 'eventPage')->appends(['blogPage' => \Request::get('blogPage')]);
+        $blog_input = $blog->orderBy('created_at', 'desc')->paginate(6,['*'], 'blogPage')->appends(['eventPage' => \Request::get('eventPage')]);
+        
+        return view('view')->with(['events'=>$event_input,'user' => $user,'blogs' =>$blog_input]);
     }
     
     

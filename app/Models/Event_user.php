@@ -19,4 +19,6 @@ class Event_user extends Model
         'event_id',
         
     ];
+    
+
 }

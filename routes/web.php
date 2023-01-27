@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
     URL::forceScheme('https');
     
     Route::get('/', [MyController::class, 'index'])->name('index');
+    Route::get('{blog}/blog', [MyController::class, 'blog'])->name('blog');
 
     Route::group(['middleware'=>['auth']], function(){
     //ログインした後の画面はここに入れる

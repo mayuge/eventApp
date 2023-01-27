@@ -39,6 +39,8 @@ class User extends Authenticatable
      * The attributes that should be cast.
      *
      * @var array<string, string>
+     * 
+     *この下にあるはモデルの関数でリレーションができる
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
@@ -51,4 +53,5 @@ class User extends Authenticatable
     public function joinedEvent($event_id){
         return Event_user::where('user_id',$this->id)->where('event_id',$event_id)->exists();
     }
+
 }
