@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('event_users', function (Blueprint $table) {
             $table->id();
-            $table->string('comment', 50)->nullable();
+            $table->string('comment', 200)->nullable();
             $table->string('user_id', 50);
             $table->string('event_id', 50);
             $table->timestamps();

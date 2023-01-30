@@ -43,5 +43,8 @@ class Event extends Model
     public function creater(){
        return User::where('id','=',$this->user_id)->first();
     }
+     public function userCount(){
+        return  Event_user::where('event_id',$this->id)->count();
+    }
    
 }

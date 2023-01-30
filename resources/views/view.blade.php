@@ -21,7 +21,7 @@
             <div class="left_bar">
                 <a class="login_button" href='/create'>イベント作成</a>
                 <a class="login_button" href='/createBlog'>ブログ作成</a>
-                <a class="login_button" href='/'>戻る</a>
+                <a class="login_button" href='/'>ログアウト</a>
             </div>
             <div class="blog_container">
                     
@@ -43,13 +43,14 @@
                     <div class="event_card">
                         <div>
                             @if($event->image_url1 === null)
-                                <img style="width:100%;height:235px;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674231158/ajy01ljzsnvcew6spkad.jpg">
+                                <img style="width:100%;height:220px;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674231158/ajy01ljzsnvcew6spkad.jpg">
                             @else
-                                <img style="width:100%;height:235px;"src="{{ $event->image_url1 }}">
+                                <img style="width:100%;height:220px;"src="{{ $event->image_url1 }}">
                             @endif
-                            <h2 style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$event->title}}</h2>
-                            <p　style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">{{$event->description}}</p>
-                            
+                            <h2 class="indent">{{$event->title}}</h2>
+                            <div style="display:flex;">
+                                <p　class="indent">{{$event->description}}</p>
+                            </div>
                             <div style="display:flex;">
                                 <span class="material-icons mini_icon">person</span>
                                 <p>作成者：{{$event->creater()->name}}</p>
@@ -72,7 +73,7 @@
                             </div>
                             <div style="display:flex;">
                                 <span class="material-icons mini_icon">description</span>
-                                <p>その他：{{$event->others}}</p>
+                                <p class="indent">その他：{{$event->others}}</p>
                             </div>
                             
                         </div>
@@ -115,13 +116,20 @@
                             @else
                                 <img style="width:100%;height:50%;"src="{{ $blog->image_url1 }}">
                             @endif
-                            
+                             <p>作成者：{{$blog->blogCreater()->name}}</p>
+                             <p>作成日：{{$blog->created_at}}</p>
                             <h2>{{$blog->title}}</h2>
-                            <p>{{$blog->body}}</p>
-                             <a class="join_button" style="width:95%;" href='/{{$blog->id}}/blog'>ブログを見る</a>
+                            <p class="indents">{{$blog->body}}</p>
+                            
+                            
+                            
                             @if(Auth::user()->id == $blog->user_id)
+                                <a class="join_button" style="width:95%;" href='/{{$blog->id}}/blog'>ブログを見る</a>
                                 <a class="join_button" style="width:95%; background-color:#8e89c4"href='/{{$blog->id}}/blogDelete'>削除する</a>
-                            @endif    
+                            @else
+                                <a class="join_button" style="margin-top:auto; margin-bottom:40px;width:95%;" href='/{{$blog->id}}/blog'>ブログを見る</a>
+                            @endif
+                            
                         </div>
                         @endforeach
                 </div>

@@ -55,8 +55,8 @@
             box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
         }
         .join_button{
+        	margin: 5px auto;
         	text-decoration: none;
-            margin: 5px auto;
             display: flex;
             text-align: center;
             align-items: center;
@@ -71,6 +71,17 @@
 		.container{
 		  width: 100%;
 		  display: flex;
+		}
+		.indent{
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.indents{
+			  display: -webkit-box;
+			  -webkit-line-clamp: 3;
+			  -webkit-box-orient: vertical;
+			  overflow: hidden; 
 		}
 		.label {
 			  margin-top: 1vw;
@@ -89,23 +100,27 @@
           padding-left: 4%;
           display: flex;
 	      flex-wrap: wrap;
-          position: relative;
-         
-	        
+
         }
         .blog_card{
           width:28%;
           margin:4% 4% 0px 0px;
-          height: 470px;
+          min-height:550px;
+          height: auto;
+          padding-bottom: 20px;
           overflow: hidden;
           border-radius: 8px;
-          
+          word-break: break-all;
           box-shadow: 0 4px 15px rgba(0,0,0,.2);
+          display: flex;
+          flex-flow: column wrap;
         }
 		.event_card{
           width:28%;
           margin:4% 4% 0px 0px;
-          height: 550px;
+          min-height: 520px;
+          height: auto;
+          padding-bottom: 20px;
           overflow: hidden;
           border-radius: 8px;
           box-shadow: 0 4px 15px rgba(0,0,0,.2);
@@ -113,13 +128,14 @@
 		.pagination{
 			margin-top: 1vw;
 		   	text-align: center;
+		   	margin-bottom: 1vw;
 		}
 		
 		.pagination li{
 		   display: inline-block;
 		}
 		.page-item{
-		  padding: 8px 16px;
+		   padding: 8px 16px;
 		   border: 1px solid #fa8500;
 		}
 		

@@ -53,5 +53,6 @@ class User extends Authenticatable
     public function joinedEvent($event_id){
         return Event_user::where('user_id',$this->id)->where('event_id',$event_id)->exists();
     }
-
+    
+   
 }

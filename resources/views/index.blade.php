@@ -36,9 +36,9 @@
                         @endif
                         <h2>{{$blog->title}}</h2>
                         <p>{{$blog->created_at}}</p>
-                        <p>{{$blog->body}}</p>
+                        <p class="indents">{{$blog->body}}</p>
                         
-                        <a class="join_button" style="width:95%;" href='/{{$blog->id}}/blog'>ブログを見る</a>
+                        <a class="join_button" style="margin-top:auto; margin-bottom:40px;width:95%;" href='/{{$blog->id}}/blog'>ブログを見る</a>
                     </div>
                     @endforeach
                 </div>

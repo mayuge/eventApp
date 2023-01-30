@@ -22,12 +22,11 @@ class MyController extends Controller
     }
     
     public function view(User $user, Event $event, Blog $blog){
-        $event_input = $event->withCount('users')->orderBy('created_at', 'desc')->paginate(6,['*'], 'eventPage')->appends(['blogPage' => \Request::get('blogPage')]);
+        $event_input = $event->withCount('users')->orderBy('updated_at', 'desc')->paginate(6,['*'], 'eventPage')->appends(['blogPage' => \Request::get('blogPage')]);
         $blog_input = $blog->orderBy('created_at', 'desc')->paginate(6,['*'], 'blogPage')->appends(['eventPage' => \Request::get('eventPage')]);
         
         return view('view')->with(['events'=>$event_input,'user' => $user,'blogs' =>$blog_input]);
     }
-    
     
     public function createBlog(User $user){
         return view('createBlog')->with(['user' => $user]);

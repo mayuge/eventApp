@@ -34,4 +34,7 @@ class Blog extends Model
      public function comments(){
      return $this->hasMany(Comment::class);
     }
+     public function blogCreater(){
+       return User::where('id','=',$this->user_id)->first();
+    }
 }

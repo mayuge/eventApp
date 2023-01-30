@@ -41,6 +41,7 @@
           width: 80%;
         }
         .label {
+          margin-top: 20px;
           margin-left: 1vw;
   			  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
   			  color: #494949;/*文字色*/
@@ -119,3 +120,7 @@
           max-height:50vw;
           margin: 10px auto;
         }
+        
+      .comment{
+        margin-left: 1vw;
+      }

@@ -43,6 +43,12 @@
   			  border-left: solid 5px #fa8500;/*左線*/
   			  border-bottom: solid 3px #d7d7d7;/*下線*/
 	  		}
+	  		.indents{
+  			  display: -webkit-box;
+  			  -webkit-line-clamp: 4;
+  			  -webkit-box-orient: vertical;
+  			  overflow: hidden; 
+      	}
         .messagebox{
             padding: 0px 50px 0px 50px;
             margin-top: 20px;
@@ -67,8 +73,10 @@
           height: 470px;
           overflow: hidden;
           border-radius: 8px;
-          
           box-shadow: 0 4px 15px rgba(0,0,0,.2);
+          display: flex;
+          flex-flow: column wrap;
+          word-break: break-all;
         }
         .card_container{
           padding-left: 4%;
@@ -81,8 +89,6 @@
         .blog_container{
           margin-top: 70px;
           width: 80%;
-          
-          
         }
       
         .login_button{
@@ -101,7 +107,7 @@
             box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
         }
         .join_button{
-        	text-decoration: none;
+        	  text-decoration: none;
             margin: 5px auto;
             display: flex;
             text-align: center;
