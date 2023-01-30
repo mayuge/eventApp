@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/blog.css')  }}" >
-        <title>eventApp</title>
+        <title>kimi ~君だけのイベントを開催しよう~</title>
     </head>
     <body class="antialiased">
         <nav class="header_nav">
@@ -46,10 +46,11 @@
                      @endforeach
                      <form action="/storeComment/{{$blog->id}}" method="POST">
                          @csrf
-                        <div><input type="text" style="margin-top:10px; height:30px;" name="comment[name]" value="ニックネーム"/></div>
-                        <div><textarea style="width:100%;" rows="3" name="comment[body]" placeholder="コメント">コメント</textarea></div>
-                        <div><input type="hidden" name="comment[blog_id]" value="{{$blog->id}}"/></div>
-                        <div><input class="join_button" type="submit" value="コメントを送信"/></div>
+                        
+                        <input type="text" style="margin-top:10px; height:30px;" name="comment[name]" value="ニックネーム"/>
+                        <textarea style="width:100%;" rows="3" name="comment[body]" placeholder="コメント">コメント</textarea>
+                        <input type="hidden" name="comment[blog_id]" value="{{$blog->id}}"/>
+                        <input class="join_button" type="submit" value="コメントを送信"/>
                     </form>
                 </div>
             </div>

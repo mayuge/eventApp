@@ -5,7 +5,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/view.css')  }}" >
-        <title>eventApp</title>
+        <title>kimi ~君だけのイベントを開催しよう~</title>
     </head>
     <body class="antialiased">
         <nav class="header_nav">
@@ -116,9 +116,17 @@
                             @else
                                 <img style="width:100%;height:50%;"src="{{ $blog->image_url1 }}">
                             @endif
-                             <p>作成者：{{$blog->blogCreater()->name}}</p>
-                             <p>作成日：{{$blog->created_at}}</p>
+                            
                             <h2>{{$blog->title}}</h2>
+                            <div style="display:flex;">
+                                <span class="material-icons mini_icon">person</span>
+                                <p>作成者：{{$blog->blogCreater()->name}}</p>
+                            </div>
+                            <div style="display:flex;">
+                                <span class="material-icons mini_icon">schedule</span>
+                            <p>作成日：{{$blog->created_at}}</p>
+                            </div>
+                            
                             <p class="indents">{{$blog->body}}</p>
                             
                             

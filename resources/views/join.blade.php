@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('/css/join.css')  }}" >
-        <title>eventApp</title>
+        <title>kimi ~君だけのイベントを開催しよう~</title>
     </head>
     <body class="antialiased">
           <nav class="header_nav">
