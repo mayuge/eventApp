@@ -47,8 +47,8 @@
                      <form action="/storeComment/{{$blog->id}}" method="POST">
                          @csrf
                         
-                        <input type="text" style="margin-top:10px; height:30px;" name="comment[name]" value="ニックネーム"/>
-                        <textarea style="width:100%;" rows="3" name="comment[body]" placeholder="コメント">コメント</textarea>
+                        <input type="text" style="margin-top:10px; height:30px;" placeholder="ニックネーム" name="comment[name]"/>
+                        <textarea style="width:100%;" rows="3" name="comment[body]" placeholder="コメント"></textarea>
                         <input type="hidden" name="comment[blog_id]" value="{{$blog->id}}"/>
                         <input class="join_button" type="submit" value="コメントを送信"/>
                     </form>

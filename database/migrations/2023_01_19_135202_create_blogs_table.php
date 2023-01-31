@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('user_id', 50);
-            $table->string('title', 30);
+            $table->string('title', 50);
             $table->string('body', 1000);
             $table->string('image_path1')->nullable();
             $table->string('image_path2')->nullable();

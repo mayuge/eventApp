@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\blogRequest; 
+use App\Http\Requests\eventRequest; 
+use App\Http\Requests\commentRequest; 
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Event_user;
@@ -39,7 +42,7 @@ class MyController extends Controller
     public function eventEdit(User $user ,Event $event){
         return view('eventEdit')->with(['user' => $user,'events'=>$event]);
     }
-    public function storeBlog(Request $request, Blog $blog){
+    public function storeBlog(blogRequest $request, Blog $blog){
          $input = $request['blog'];
         // dd($input);
          $file = $request->file('blog');
@@ -61,13 +64,13 @@ class MyController extends Controller
         return redirect('/view');
     }
     
-    public function storeComment(Request $request, Comment $comment){
+    public function storeComment(commentRequest $request, Comment $comment){
          $input = $request['comment'];
          $comment->fill($input)->save();
          return redirect('/');
     }
     
-    public function store(Request $request, Event $event, Event_user $event_user){
+    public function store(eventRequest $request, Event $event, Event_user $event_user){
         $input = $request['events'];
         //dd($input);
         $file = $request->file('events');
@@ -103,7 +106,7 @@ class MyController extends Controller
          return redirect('/view');
     }
     
-    public function update(Request $request, Event $event){
+    public function update(eventRequest $request, Event $event){
         $input = $request['events'];
         $file = $request->file('events');
         //dd($event);
@@ -127,7 +130,7 @@ class MyController extends Controller
     }
     
     
-     public function join(Event $event ,Event_user $event_user){
+     public function join(Event $event, Event_user $event_user){
     
         $event_user2= DB::table('event_users')->where('event_id','=',$event->id)->get();
         

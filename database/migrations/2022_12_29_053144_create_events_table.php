@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('image_url3')->nullable();
             $table->dateTime('date');
             $table->string('description', 200);
-            $table->string('message', 200);
+            $table->string('message', 200)->nullable();
             $table->string('others', 200)->nullable();
             $table->integer('max_num');
             $table->timestamps();

@@ -28,15 +28,15 @@
                     <form style="margin-left:1vw;" action="/store" method="POST" enctype="multipart/form-data">
                         @csrf
                             <div><input type="hidden" name="events[user_id]" value="{{ Auth::user()->id }}"/></div>
-                            <h3>イベント名</h3>
+                            <h3>イベント名(必須)</h3>
                             <div><input class="input_form" type="text" name="events[title]" placeholder="イベント名"/></div>
-                            <h3>イベント説明</h3>
+                            <h3>イベント説明（必須）</h3>
                             <div><textarea name="events[description]" placeholder="イベント説明"></textarea></div>
-                            <h3>集合場所</h3>
+                            <h3>集合場所（必須）</h3>
                             <div><textarea name="events[address]" placeholder="大まかな集合場所を設定してください。例）東京駅、使用するオンライン会議ソフトの名前など"></textarea></div>
-                            <h3>開催日時</h3>
+                            <h3>開催日時（必須）</h3>
                             <div><input class="input_form" type="datetime-local" name="events[date]" placeholder="日時"></div>
-                            <h3>参加上限人数</h3>
+                            <h3>参加上限人数（必須）</h3>
                             <div><input class="input_form" type="number" min="2"name="events[max_num]" placeholder="参加上限人数（参加者は含めない）"></input></div>
                             <h3>秘密のメッセージ</h3>
                             <div><textarea name="events[message]" placeholder="秘密のメッセージはイベント参加者のみが閲覧できます。詳しい集合場所やオンライン会議のURLはこちらへ"></textarea></div>

@@ -27,10 +27,10 @@
                 
                 <form style="margin-left:1vw;" action="/storeBlog" method="POST" enctype="multipart/form-data">
                     @csrf
-                        <h3>ブログタイトル</h3>
+                        <h3>ブログタイトル（必須）</h3>
                         <div><input class="input_form" type="text" name="blog[title]" placeholder="ブログタイトル"/></div>
                         <div><input type="hidden" name="blog[user_id]" value="{{ Auth::user()->id }}"/></div>
-                        <h3>ブログ内容</h3>
+                        <h3>ブログ内容（必須）</h3>
                         <div><textarea name="blog[body]" placeholder="ブログ内容"></textarea></div>
                         <div><input type="file" name="blog[image_path1]" placeholder="イメージ１"></input></div>
                         <div><input type="file" name="blog[image_path2]" placeholder="イメージ２"></input></div>

@@ -30,15 +30,15 @@
                     @csrf
                     @method('PUT')
                         <div><input type="hidden" name="events[user_id]" value="{{ Auth::user()->id }}"/></div>
-                        <h3>イベント名</h3>
+                        <h3>イベント名（必須）</h3>
                         <div><input class="input_form" type="text" name="events[title]" value="{{$events->title}}"></div>
-                        <h3>イベント説明</h3>
+                        <h3>イベント説明（必須）</h3>
                         <div><input class="textarea_form" name="events[description]" value="{{$events->description}}"></input></div>
-                        <h3>集合場所</h3>
+                        <h3>集合場所（必須）</h3>
                         <div><input class="textarea_form" name="events[address]" value="{{$events->address}}"></input></div>
-                        <h3>開催日時</h3>
+                        <h3>開催日時（必須）</h3>
                         <div><input class="input_form" name="events[date]" value="{{$events->date}}"></input></div>
-                        <h3>参加上限人数</h3>
+                        <h3>参加上限人数（必須）</h3>
                         <div><input class="input_form" type="number" name="events[max_num]" value="{{$events->max_num}}"></input></div>
                         <h3>秘密のメッセージ</h3>
                         <div><input class="textarea_form" name="events[message]" value="{{$events->message}}"></input></div>
