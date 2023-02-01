@@ -137,7 +137,8 @@ class MyController extends Controller
     
         $event_user2= DB::table('event_users')->where('event_id','=',$event->id)->get();
         
-        $users = $event->users;
+        //$users = $event->users;
+        $users=DB::table('users')->get();
     
         return view('join')->with(['users'=>$users,'event_user2'=>$event_user2,'events'=>$event]);
     }
