@@ -70,7 +70,7 @@
                             </div>
                             <div style="display:flex;">
                                 <span class="material-icons mini_icon">person_add</span>
-                                <p>現在：{{$event->users_count}}人</p>
+                                <p>現在：{{$event->userCount()}}人</p>
                             </div>
                             <div style="display:flex;">
                                 <span class="material-icons mini_icon">description</span>
@@ -78,7 +78,6 @@
                             </div>
                             
                         </div>
-                      
                       
                             @if($event->user_id == Auth::id())
                                 <a class="join_button" style="width:95%;" href='/{{$event->id}}/join'>主催者管理画面へ</a>
