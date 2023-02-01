@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
     URL::forceScheme('https');
     
     Route::get('/', [MyController::class, 'index'])->name('index');
-    Route::get('{blog}/blog', [MyController::class, 'blog'])->name('blog');
+    Route::get('/{blog}/blog', [MyController::class, 'blog'])->name('blog');
 
     Route::group(['middleware'=>['auth']], function(){
     //ログインした後の画面はここに入れる
@@ -25,8 +25,6 @@ use Illuminate\Support\Facades\Route;
      
     Route::get('/create', [MyController::class, 'create'])->name('create')->middleware('auth');
     Route::get('/createBlog', [MyController::class, 'createBlog'])->name('createBlog')->middleware('auth');
-    
-    
     
     Route::get('{event}/join', [MyController::class, 'join'])->name('join')->middleware('auth');
     Route::get('{event}/eventEdit', [MyController::class, 'eventEdit'])->name('eventEdit')->middleware('auth');
@@ -43,6 +41,8 @@ use Illuminate\Support\Facades\Route;
     
     Route::get('{event_user}/joinDelete', [MyController::class, 'joinDelete'])->name('joinDelete')->middleware('auth');
     Route::get('{blog}/blogDelete', [MyController::class, 'blogDelete'])->name('blogDelete')->middleware('auth');
+    
+    Route::get('/loginBlog', [MyController::class, 'loginBlog'])->name('loginBlog')->middleware('auth');
 });
 
 

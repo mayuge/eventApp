@@ -1,0 +1,146 @@
+		*{
+		 margin:0; 
+		}
+		.header_nav {
+		  width: 100%;
+		  height: 70px;
+		  background-color: #fa8500;
+		  box-shadow: 5px 5px 5px 10px rgba(0,0,0,0.2);
+		  box-sizing: border-box;
+		  top: 0;
+		  z-index: 10000;
+		  position: fixed;
+		}
+		.header_nav ul{
+		  display: flex;
+		}
+		.header_nav li {
+		  list-style: none;
+		  
+		}
+		.header_nav a {
+			margin-top: 20px;
+			display: block;
+			text-decoration: none;
+			color: #ffffff;
+			margin-right: 35px;
+		}
+		.icon{
+			font-size: 60px;
+			color: #a6a6a6;
+		}
+		.mini_icon{
+			font-size: 25px;
+			color: #a6a6a6;
+		}
+		.left_bar{
+          padding-top: 100px;
+          width:20%;
+          height: auto;
+          background-color: #494949;
+        }
+        .login_button{
+        	text-decoration: none;
+            margin: 30px auto;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-color: #fa8500;
+            font-size: 10px;
+            width: 80%;
+            height: 30px;
+            border-radius: 3px;
+            box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
+        }
+        .join_button{
+        	margin: 5px auto;
+        	text-decoration: none;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-color: #f05340;
+            font-size: 10px;
+            height: 30px;
+            border-radius: 3px;
+            box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.4);
+        }
+		.container{
+		  width: 100%;
+		  display: flex;
+		}
+		.indent{
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.indents{
+			  display: -webkit-box;
+			  -webkit-line-clamp: 3;
+			  -webkit-box-orient: vertical;
+			  overflow: hidden; 
+		}
+		.label {
+			  margin-top: 1vw;
+			  margin-left: 1vw;
+			  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+			  color: #494949;/*文字色*/
+			  background: #f4f4f4;/*背景色*/
+			  border-left: solid 5px #fa8500;/*左線*/
+			  border-bottom: solid 3px #d7d7d7;/*下線*/
+			}
+		.blog_container{
+          margin-top: 85px;
+          width: 80%;
+        }
+        .card_container{
+          padding-left: 4%;
+          display: flex;
+	      flex-wrap: wrap;
+
+        }
+        .blog_card{
+          width:28%;
+          margin:4% 4% 0px 0px;
+          min-height:550px;
+          height: auto;
+          padding-bottom: 20px;
+          overflow: hidden;
+          border-radius: 8px;
+          word-break: break-all;
+          box-shadow: 0 4px 15px rgba(0,0,0,.2);
+          display: flex;
+          flex-flow: column wrap;
+        }
+		.event_card{
+          width:28%;
+          margin:4% 4% 0px 0px;
+          min-height: 520px;
+          height: auto;
+          padding-bottom: 20px;
+          overflow: hidden;
+          border-radius: 8px;
+          box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        }
+		.pagination{
+			margin-top: 1vw;
+		   	text-align: center;
+		   	margin-bottom: 1vw;
+		}
+		
+		.pagination li{
+		   display: inline-block;
+		}
+		.page-item{
+		   padding: 8px 16px;
+		   border: 1px solid #fa8500;
+		}
+		
+		.page-item.active {
+			background-color: #fa8500;
+			color: white;
+			border: 1px solid #fa8500;
+		}

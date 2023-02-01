@@ -17,16 +17,21 @@ use Cloudinary;
 
 class MyController extends Controller
 {
-    public function index(User $user, Blog $blog, Comment $comment){
-        return view('index')->with(['user' => $user,'blogs' => $blog->orderBy('created_at', 'desc')->paginate(6),'comments'=>$comment]);
+    public function index(User $user, Blog $blog){
+        return view('index')->with(['user' => $user,'blogs' => $blog->orderBy('created_at', 'desc')->paginate(6)]);
     }
+    public function loginBlog(User $user, Blog $blog){
+        $blog_input = $blog->orderBy('created_at', 'desc')->paginate(6);
+         return view('loginBlog')->with(['user' => $user,'blogs' =>$blog_input]);
+    }
+    
     public function blog(User $user, Blog $blog, Comment $comment){
         return view('blog')->with(['user' => $user,'blog' => $blog,'comments'=>$comment]);
     }
     
     public function view(User $user, Event $event, Blog $blog){
-        $event_input = $event->withCount('users')->orderBy('updated_at', 'desc')->paginate(6,['*'], 'eventPage')->appends(['blogPage' => \Request::get('blogPage')]);
-        $blog_input = $blog->orderBy('created_at', 'desc')->paginate(6,['*'], 'blogPage')->appends(['eventPage' => \Request::get('eventPage')]);
+        $event_input = $event->withCount('users')->orderBy('updated_at', 'desc')->paginate(6);
+        $blog_input = $blog->orderBy('created_at', 'desc')->paginate(6);
         
         return view('view')->with(['events'=>$event_input,'user' => $user,'blogs' =>$blog_input]);
     }
@@ -61,13 +66,13 @@ class MyController extends Controller
         }
         
         $blog->fill($input)->save();
-        return redirect('/view');
+        return redirect('/loginBlog');
     }
     
     public function storeComment(commentRequest $request, Comment $comment){
          $input = $request['comment'];
          $comment->fill($input)->save();
-         return redirect('/');
+         return redirect('/'.$comment->blog_id.'/blog');
     }
     
     public function store(eventRequest $request, Event $event, Event_user $event_user){
