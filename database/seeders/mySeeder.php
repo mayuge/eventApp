@@ -15,10 +15,7 @@ class mySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('appusers')->insert([
-                'name' => '山田太郎',
-                'email' => 'taro@gmail.com',
-         ]);
+       
          
           DB::table('blogs')->insert([
                 'title' => 'ブログのタイトル',
