@@ -31,9 +31,7 @@ class MyController extends Controller
     
     public function view(User $user, Event $event, Blog $blog){
         $event_input = $event->withCount('users')->orderBy('updated_at', 'desc')->paginate(6);
-        $blog_input = $blog->orderBy('created_at', 'desc')->paginate(6);
-        
-        return view('view')->with(['events'=>$event_input,'user' => $user,'blogs' =>$blog_input]);
+        return view('view')->with(['events'=>$event_input,'user' => $user]);
     }
     
     public function createBlog(User $user){
