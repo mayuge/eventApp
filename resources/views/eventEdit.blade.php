@@ -39,7 +39,7 @@
                         <h3>開催日時（必須）</h3>
                         <div><input class="input_form" name="events[date]" value="{{$events->date}}"></input></div>
                         <h3>参加上限人数（必須）</h3>
-                        <div><input class="input_form" type="number" name="events[max_num]" value="{{$events->max_num}}"></input></div>
+                        <div><input class="input_form" min="2" type="number" name="events[max_num]" value="{{$events->max_num}}"></input></div>
                         <h3>秘密のメッセージ</h3>
                         <div><input class="textarea_form" name="events[message]" value="{{$events->message}}"></input></div>
                         <h3>その他</h3>
