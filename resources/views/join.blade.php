@@ -25,6 +25,10 @@
         
             <div class="blog_container">
             <img style="width:100%;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674231158/ajy01ljzsnvcew6spkad.jpg">
+            <div class="sm_menu">
+                <a class="login_button" href='/'>ログアウト</a>
+                <a class="login_button" href='/view'>戻る</a>
+            </div>
             <div class="label"><h2>イベント概要</h2></div>
                 <div class="middle_container">
                        
