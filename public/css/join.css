@@ -26,7 +26,6 @@
             margin-right: 35px;
         }
         .container{
-         
           width: 100%;
           display: flex;
         }
@@ -42,6 +41,7 @@
         }
         .label {
           margin-left: 1vw;
+          margin-top: 20px;
   			  padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
   			  color: #494949;/*文字色*/
   			  background: #f4f4f4;/*背景色*/

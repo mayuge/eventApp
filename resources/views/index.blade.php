@@ -11,20 +11,26 @@
         <nav class="header_nav">
             <ul>
                 <img href="/"style="margin-left:-60px;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674273998/xdnja7rhsf3w7imicf3y.png">
-                <li><a href="/">サービス紹介</a></li>
-                <li><a href="/">最新情報</a></li>
-                <li><a href="/">ブログ</a></li>
-                <li><a href="/">お問い合わせ</a></li>
+                <li><a href="https://github.com/mayuge/eventApp">サービス紹介</a></li>
+                <li><a href="https://github.com/mayuge/eventApp">最新情報</a></li>
+                <li><a href="https://github.com/mayuge/eventApp">ブログ</a></li>
+                <li><a href="https://github.com/mayuge/eventApp">お問い合わせ</a></li>
             </ul>
         </nav>
         
         <div class="container">            
             <div class="left_bar">
-                <a class="login_button" href='/login'>ログイン</a>
+                <a class="login_button" href='/view'>ログイン</a>
                 <a class="login_button" href='/register'>新規登録</a>
             </div>
+            
+            
             <div class="blog_container">
                 <img style="width:100%;"src="https://res.cloudinary.com/derexoeav/image/upload/v1674231158/ajy01ljzsnvcew6spkad.jpg">
+                <div class="sm_menu">
+                    <a class="login_button" href='/view'>ログイン</a>
+                    <a class="login_button" href='/register'>新規登録</a>
+                </div>
                 <div class="label"><h2>イベントブログ一覧</h2></div>
                 <div class="card_container">
                     @foreach ($blogs as $blog)

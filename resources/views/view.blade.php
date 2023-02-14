@@ -25,7 +25,6 @@
                 <a class="login_button" href='/'>ログアウト</a>
             </div>
             <div class="blog_container">
-                    
                 
                 <div class="label"><h2>ログイン後画面</h2></div>
                 <div style="display:flex; margin-left:1vw;">
@@ -36,6 +35,13 @@
                 <div style="display:flex; margin-left:1vw;">
                     <span class="material-icons icon">email</span>
                     <div style="margin:auto 0;">{{ Auth::user()->email }}</div>
+                </div>
+                
+                <div class="sm_menu">
+                    <a class="login_button" href='/create'>イベント作成</a>
+                    <a class="login_button" href='/createBlog'>ブログ作成</a>
+                    <a class="login_button" href='/loginBlog'>ブログ一覧</a>
+                    <a class="login_button" href='/'>ログアウト</a>
                 </div>
                 
                 <div class="label"><h2>開催イベント一覧</h2></div>
